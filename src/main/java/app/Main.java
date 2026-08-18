@@ -132,8 +132,12 @@ public class Main {
         ccNatan.transferir(ceNatan, 500);
 
         System.out.println(ccNatan);
+
+        System.out.println("\n");
+
         System.out.println(ceNatan);
 
+        System.out.println("\n");
         // Cria uma ContaPoupanca (também subclasse de contas.Conta).
         // Outro objeto, com memória separada da conta acima.
         ContaPoupanca cpWesley = new ContaPoupanca("Wesley", "6789-0");

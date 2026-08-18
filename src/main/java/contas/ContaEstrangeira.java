@@ -9,8 +9,13 @@ public class ContaEstrangeira extends Conta {
         super(titular, numero);
     }
 
+    @Override
+    public void depositar(double valor) {
+        depositar(valor / COTACAO_DOLAR, "Depósito");
+    }
+
     public double getSaldoEmReais() {
-        return COTACAO_DOLAR * this.getSaldo();
+        return this.getSaldo() * COTACAO_DOLAR;
     }
 
     public String tipoDeConta() {
