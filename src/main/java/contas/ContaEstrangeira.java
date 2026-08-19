@@ -21,4 +21,7 @@ public class ContaEstrangeira extends Conta {
     public String tipoDeConta() {
         return "Conta em Dólar";
     }
+
+    @Override
+    public String simboloMonetario() { return "$"; }
 }

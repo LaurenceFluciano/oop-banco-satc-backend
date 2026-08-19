@@ -53,5 +53,10 @@ public class ContaInvestimento extends Conta {
     public String tipoDeConta() {
         return "Investimento";
     }
+
+
+    @Override
+    public String simboloMonetario() { return "R$"; }
+
 // Fim da classe ContaInvestimento.
 }

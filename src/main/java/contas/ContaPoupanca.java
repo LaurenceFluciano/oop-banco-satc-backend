@@ -46,5 +46,8 @@ public class ContaPoupanca extends Conta {
     public String tipoDeConta() {
         return "Poupança";
     }
+
+    @Override
+    public String simboloMonetario() { return "R$"; }
 // Fim da classe ContaPoupanca.
 }

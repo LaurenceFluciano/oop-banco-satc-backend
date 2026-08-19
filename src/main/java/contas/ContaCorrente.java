@@ -87,5 +87,8 @@ public class ContaCorrente extends Conta {
         return "Conta Corrente";
     }
 
+    @Override
+    public String simboloMonetario() { return "R$"; }
+
 // Fim da classe ContaCorrente.
 }

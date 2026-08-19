@@ -59,7 +59,6 @@ abstract public class Conta implements Tributavel {
     // Sem valor inicial, um double começa em 0.0.
     private double saldo;
 
-
     // Uma Conta TEM lançamentos -> isso é COMPOSIÇÃO, e é diferente de herança:
     // ContaCorrente É uma Conta (herança), Conta TEM lançamentos (composição).
     //
@@ -254,6 +253,13 @@ abstract public class Conta implements Tributavel {
 
     public abstract String tipoDeConta();
 
+    // SOLUCAO PRATICA EXERCICIO 2.3
+    // Toda Conta precisa informar qual símbolo monetário utiliza, mas a classe base não decide qual é.
+    // Toda Conta não necessariamente utiliza Real brasileiro.
+    // O método abstrato obriga as subclasses concretas a definir
+    // como o símbolo monetário será obtido, sem pressupor um atributo interno.
+    public abstract String simboloMonetario();
+
     // ---------------------------------------------------------------- toString
 
     // toString() já existe em Object; aqui estamos SOBRESCREVENDO a versão herdada.
@@ -282,7 +288,7 @@ abstract public class Conta implements Tributavel {
         extrato += "-".repeat(LARGURA) + "\n";
 
         // Cabeçalho das colunas, alinhado com o mesmo esquema usado em linha().
-        extrato += String.format("%-28s %16s", "DESCRIÇÃO", "VALOR (R$)") + "\n";
+        extrato += String.format("%-28s %16s", "DESCRIÇÃO", "VALOR (" + this.simboloMonetario() + ")") + "\n";
 
         // for-each: percorre a lista do começo ao fim sem precisar de índice.
         for (String lancamento : this.lancamentos) {
