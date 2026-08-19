@@ -6,7 +6,7 @@ R: Porque conta se tornou uma classe abstrata, que não pode ser instanciada com
 
 ## 2.1: O método transferir() tem três linhas e não sabe que a corrente cobra taxa nem que a estrangeira converte moeda. Como as duas regras foram aplicadas então? Qual conceito de POO está agindo aí?
 
-R: As regras foram aplicadas porque o saldo é sempre salvo em dolár, além da **herança** que cada classe concreta tem sob a classe abstrata Conta.
+R: As regras foram aplicadas devido a **herança** que cada classe concreta tem sob a classe abstrata Conta. Cada método de depósito aplica sua própria regra de negócio. Além disso, as transações efetuadas são realizadas em reais, logo as regras de conversão de cambio simplificam.
 
 ## 2.2: Por que getSaldoEmReais() devolveu 499.99999999999994 em vez de 500.00? (Dica: o valor voltou de uma divisão por 5,40.)
 
