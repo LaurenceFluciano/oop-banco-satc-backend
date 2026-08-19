@@ -72,3 +72,36 @@ R: Uma interface poderia ter ambos os métodos, no entanto ela não pode ter atr
 
 R: Novamente pelo mesmo motivo da questão `2.3`, o método `toString()` imprime no extrato o tipo de imposto de forma hardcoded. A solução seria criar um método abstrato `tipoImposto()` e implementar em cada classe.
 
+#### 4.2: Acao e ContaInvestimento cobram imposto sobre o lucro, e as duas implementam Tributavel. Por que uma herda de Conta e a outra não?
+
+R: Uma ação ela é um dominios diferente de conta uma bancária. Uma ação representa um ativo de uma empresa. Na justificativa técnica, ela não utiliza os mesmos atributos e métodos de Conta, apenas da interface `Tributavel`, uma vez que ela de fato é suscetível a tributos. Portanto, Acao implementa Tributavel, mas não herda de Conta, pois não existe uma relação de especialização entre Acao e Conta.
+Se você colocasse `Acao` como subclasse de `Conta` a pergunta que fica é: "Uma ação é uma conta?". Logicamente não né.
+Não devemos herdar só porque um parece ser comum ao outro. 
+
+#### 4.3: calcularImposto() veio da interface, foi implementado na Conta e agora foi sobrescrito de novo aqui. Quantas versões desse método existem no projeto? Qual roda quando o objeto está guardado numa variável do tipo Tributavel?
+
+R: Existem 3 versões de métodos.
+Temos uma versão na main que mostra um objeto concreto, ou melhor uma lista de objetos concretos do tipo Tributavel:
+
+`ArrayList<Tributavel> listaTributaveis = new ArrayList<>();`
+
+Isso é extremamente interessante, você consegue pegar classes que tem métodos e atributos internos diferentes, mas que seguem a implementação da interface `Tributavel` e executar esse método normalmente.
+Esse é um dos usos mais elegantes da orientação objetos, sendo muito utilizado em arquitetura de software e dependencia entre módulos.
+
+Analisando o código:
+
+```
+// Adiciona a conta corrente à lista.
+listaTributaveis.add(ccNatan);
+
+// Adiciona a poupança à lista.
+listaTributaveis.add(cpWesley);
+
+// Adiciona a ação à lista, mesmo sem nenhum parentesco com as contas.
+listaTributaveis.add(petrobras);
+```
+
+Pode-se observar que os métodos que rodam em cada objeto são diferentes, mas cumprem o mesmo contrato da interface `Tributavel`.
+São totalmente diferentes um é de conta corrente do Natan, outro conta poupança do Wesley e finalmente uma ação da petrobras.
+Respondendo a pergunta final, o método que roda é `calcularImposto()`, o método que a interface define.
+
