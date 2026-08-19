@@ -89,13 +89,9 @@ package app;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import contas.ContaCorrente;
-import contas.ContaPoupanca;
-import contas.ContaEstrangeira;
+import contas.*;
 import investimentos.Acao;
 import tributaveis.Tributavel;
-
-import contas.Conta;
 
 
 // Classe principal, ponto de entrada do programa.
@@ -115,6 +111,14 @@ public class Main {
     // main(): método que a JVM chama para iniciar a execução.
     // static = roda sem precisar de "new Main()".
     public static void main() {
+
+        ContaInvestimento ciNatan = new ContaInvestimento("Natan", "7777-7");
+
+        ciNatan.depositar(1000);
+        ciNatan.aplicarRendimento(0.10);
+
+        System.out.println(ciNatan);
+        System.out.println();
 
         // >>> OBJETO: "ContaCorrente" é a CLASSE (a forma); "ccNatan" é o OBJETO (o exemplar).
         // Uma classe só existe uma vez no projeto; objetos você cria quantos quiser, e cada um

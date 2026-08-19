@@ -40,6 +40,16 @@ package contas;
 // >>> HERANÇA: ContaInvestimento É uma Conta -- por enquanto, só isso.
 public class ContaInvestimento extends Conta {
 
+    // >>> ATRIBUTOS
+
+
+    // Atributo Imposto IR
+    private static final double ALIQUOTA_IR = 0.225;
+
+    // Atributo que soma tudo o que o cliente depositou
+    private double totalAplicado;
+
+
     // >>> OBJETO + HERANÇA: construtor não se herda; só repassa para a mãe.
     public ContaInvestimento(String titular, String numero) {
 
@@ -49,11 +59,29 @@ public class ContaInvestimento extends Conta {
     // Fim do construtor.
     }
 
+    // >>> POLIMORFISMO
+    @Override
+    public void depositar(double valor) {
+        super.depositar(valor);
+        this.totalAplicado += valor;
+    }
+
+    // >>> MÉTODO NOVO: aplica o rendimento SOBRE o saldo.
+    // # double percentual -> varia de 0 a 1
+    public boolean aplicarRendimento(double percentual) {
+        if (percentual < 0 || percentual > 1) { return false; }
+        super.depositar(this.getSaldo() * percentual, "Rendimento");
+        return true;
+    }
+
+    @Override
+    public double calcularImposto() {
+        return (getSaldo() - totalAplicado) * ALIQUOTA_IR;
+    }
 
     public String tipoDeConta() {
         return "Investimento";
     }
-
 
     @Override
     public String simboloMonetario() { return "R$"; }
