@@ -16,12 +16,12 @@ package contas;
 //  LUCRO. Aplicou R$ 1.000 e o saldo está R$ 1.100? O IR de 22,5% incide sobre
 //  os R$ 100 de rendimento. Sem lucro, imposto zero.
 //
-//  1. TODO: constante  private static final double ALIQUOTA_IR = 0.225;
-//  2. TODO: atributo   private double totalAplicado;   (soma do que o cliente depositou)
-//  3. TODO: sobrescrever depositar(double, String) para somar em totalAplicado
-//  4. TODO: criar aplicarRendimento(double percentual)
+//  1. TODO: constante  private static final double ALIQUOTA_IR = 0.225; [ COMPLETE ]
+//  2. TODO: atributo   private double totalAplicado;   (soma do que o cliente depositou) [ COMPLETE ]
+//  3. TODO: sobrescrever depositar(double, String) para somar em totalAplicado [ COMPLETE ]
+//  4. TODO: criar aplicarRendimento(double percentual) [ COMPLETE ]
 //  5. TODO: sobrescrever calcularImposto() -> (saldo - totalAplicado) * ALIQUOTA_IR,
-//           nunca negativo
+//           nunca negativo [ COMPLETE ]
 //
 //  CUIDADO: o rendimento não é dinheiro aplicado pelo cliente, é lucro. Se o
 //  aplicarRendimento() somar em totalAplicado, o lucro fica sempre zero e o
@@ -85,6 +85,9 @@ public class ContaInvestimento extends Conta {
 
     @Override
     public String simboloMonetario() { return "R$"; }
+
+    @Override
+    public String tipoDeImposto() { return "IR"; };
 
 // Fim da classe ContaInvestimento.
 }

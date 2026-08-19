@@ -24,4 +24,7 @@ public class ContaEstrangeira extends Conta {
 
     @Override
     public String simboloMonetario() { return "$"; }
+
+    @Override
+    public String tipoDeImposto() { return "IOF"; };
 }

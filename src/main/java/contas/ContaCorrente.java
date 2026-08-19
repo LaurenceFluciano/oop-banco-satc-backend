@@ -90,5 +90,8 @@ public class ContaCorrente extends Conta {
     @Override
     public String simboloMonetario() { return "R$"; }
 
+    @Override
+    public String tipoDeImposto() { return "IOF"; };
+
 // Fim da classe ContaCorrente.
 }

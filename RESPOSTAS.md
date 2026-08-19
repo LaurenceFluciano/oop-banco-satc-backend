@@ -68,3 +68,7 @@ Resumo: Implementação técnica != Representação para o usuário
 
 R: Uma interface poderia ter ambos os métodos, no entanto ela não pode ter atributos de instância e construtores. Observe que no caso de Conta, ela precisa ser abstrata porque usa construtor.
 
+#### 4.1: Olhe o rodapé do extrato acima com atenção. O valor 22,50 está certo, mas o texto está errado. Por quê? Onde está escrito, e por que a ContaInvestimento não conseguiu mudá-lo? (É o mesmo problema do VALOR (R$) na ContaEstrangeira.)
+
+R: Novamente pelo mesmo motivo da questão `2.3`, o método `toString()` imprime no extrato o tipo de imposto de forma hardcoded. A solução seria criar um método abstrato `tipoImposto()` e implementar em cada classe.
+

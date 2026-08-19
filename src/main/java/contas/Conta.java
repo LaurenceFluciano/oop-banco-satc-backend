@@ -260,6 +260,9 @@ abstract public class Conta implements Tributavel {
     // como o símbolo monetário será obtido, sem pressupor um atributo interno.
     public abstract String simboloMonetario();
 
+    // SOLUCAO PRATICA EXERCICIO 4.1
+    public abstract String tipoDeImposto();
+
     // ---------------------------------------------------------------- toString
 
     // toString() já existe em Object; aqui estamos SOBRESCREVENDO a versão herdada.
@@ -306,7 +309,7 @@ abstract public class Conta implements Tributavel {
         extrato += linha("SALDO", this.saldo) + "\n";
 
         // Chama o método do contrato: o imposto aparece no rodapé do extrato.
-        extrato += linha("Imposto (IOF 0,5%)", calcularImposto()) + "\n";
+        extrato += linha("Imposto (" + tipoDeImposto() + " 0,5%)", calcularImposto()) + "\n";
 
         // Rodapé. Sem \n no fim para não sobrar uma linha em branco depois.
         extrato += "=".repeat(LARGURA);
