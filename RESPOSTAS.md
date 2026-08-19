@@ -57,3 +57,10 @@ java: contas.ContaEstrangeira is not abstract and does not override abstract met
 ```
 Como o método abstrato não foi implementado na subclasse concreta, o compilador não permite que ela seja considerada uma classe concreta válida, pois ela não segue o contrato herdado da classe abstrata.
 
+#### 3.3: Por que tipoDeConta() é melhor que getClass().getSimpleName(), se os dois funcionam? (Pense em: quem controla o texto que aparece para o cliente?)
+
+R: Por uma questão de legibilidade e formatação como resposta final no terminal ou recibo. Se existir um nome de classe longo e estranho como por exemplo `ContaCorrentePessoaFisicaTransacionalDeOperacaoDiaria` ou `ContaCorrentePF`. Seria muito melhor `Conta Corrente - Pessoa Física`.
+Além disso, outra justificativa seria separar o nome técnico de implementação do nome de representação de domínio.
+
+Resumo: Implementação técnica != Representação para o usuário
+
