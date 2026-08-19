@@ -64,3 +64,7 @@ Além disso, outra justificativa seria separar o nome técnico de implementaçã
 
 Resumo: Implementação técnica != Representação para o usuário
 
+#### 3.4: Conta agora tem um método com corpo (sacar) e um sem corpo (tipoDeConta). Uma interface poderia ter os dois? Por que a Conta não é uma interface?
+
+R: Uma interface poderia ter ambos os métodos, no entanto ela não pode ter atributos de instância e construtores. Observe que no caso de Conta, ela precisa ser abstrata porque usa construtor.
+
