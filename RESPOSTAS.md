@@ -48,3 +48,12 @@ Resumindo:
 
 A diferença então é: classe abstrata restringe a instanciação do tipo, já método abstrato indica que a operação possui apenas um contrato naquela classe e ainda não possui implementação.
 
+#### 3.2: O que acontece se uma subclasse não implementar tipoDeConta()? Teste, leia o erro e copie a mensagem do compilador na resposta.
+
+R: O erro que aparece é esse:
+
+```bash
+java: contas.ContaEstrangeira is not abstract and does not override abstract method tipoDeConta() in contas.Conta`
+```
+Como o método abstrato não foi implementado na subclasse concreta, o compilador não permite que ela seja considerada uma classe concreta válida, pois ela não segue o contrato herdado da classe abstrata.
+
