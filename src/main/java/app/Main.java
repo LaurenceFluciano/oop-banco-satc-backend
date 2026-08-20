@@ -265,7 +265,9 @@ public class Main {
         listaTributaveis.add(cpWesley);
 
         // Adiciona a ação à lista, mesmo sem nenhum parentesco com as contas.
-        listaTributaveis.add(petrobras);
+        listaTributaveis.add(ciNatan);
+
+        // Adiciona a conta investimento à lista.
 
         // Percorre a lista chamando calcularImposto() de cada objeto -- cada classe implementa
         // esse método do seu próprio jeito (0,5% do saldo nas contas, 15% do lucro na ação).
